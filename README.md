@@ -1,5 +1,5 @@
 # Bookii
-        Front-End Development Projekt
+        Front-End Development Projekt:  Online Book Store  || SS2024 
 - App-name: Bookii
 - Name: Hoai Linh Pham
 - Matrikelnummer: 584555
