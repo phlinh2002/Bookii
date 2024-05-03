@@ -1,0 +1,35 @@
+#header{
+    display:flex;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    align-self: center;
+}
+#header_img{
+    width: 100%;
+}
+body {
+    height: 100vh;
+    width:100%;
+    padding: 0;
+    font-family: "Roboto Light", sans-serif;
+}
+#header_bibliothek{
+    margin-left: 20px;
+
+}
+#main_screen{
+    background-color: #FAF0E6;
+    width: 100%;
+    position: relative;
+}
+#copyright{
+    font-family: "Roboto Thin", sans-serif;
+}
+footer{
+    width: 100%;
+    display:inline-block;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
