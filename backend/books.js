@@ -78,19 +78,11 @@ function loadBooksOnDisplay() {
                         var title = document.createElement('h3');
                         title.innerHTML = "<em>".concat(book.title, "</em>");
                         bookDiv.appendChild(title);
-                        var author = document.createElement('p');
-                        author.textContent = "Author: ".concat(book.author);
-                        bookDiv.appendChild(author);
-                        var publisher = document.createElement('p');
-                        publisher.textContent = "Publisher: ".concat(book.publisher);
-                        bookDiv.appendChild(publisher);
-                        var price = document.createElement('p');
-                        price.textContent = "Price: ".concat(book.price);
-                        bookDiv.appendChild(price);
                         if (book.cover) {
                             var coverImage = document.createElement('img');
                             coverImage.src = book.cover;
                             coverImage.alt = 'Book Cover';
+                            coverImage.classList.add('coverImg');
                             bookDiv.appendChild(coverImage);
                         }
                         else {
@@ -98,6 +90,9 @@ function loadBooksOnDisplay() {
                             noImage.textContent = 'No image!';
                             bookDiv.appendChild(noImage);
                         }
+                        var info = document.createElement('p');
+                        info.innerHTML = "Author: ".concat(book.author, " <br> Publisher: ").concat(book.publisher, " <br> Price: ").concat(book.price);
+                        bookDiv.appendChild(info);
                         bookList.appendChild(bookDiv);
                     });
                     return [2 /*return*/];

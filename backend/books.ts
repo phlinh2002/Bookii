@@ -38,29 +38,23 @@ async function loadBooksOnDisplay(){
         const title = document.createElement('h3');
         title.innerHTML = `<em>${book.title}</em>`;
         bookDiv.appendChild(title);
-
-        const author = document.createElement('p');
-        author.textContent = `Author: ${book.author}`;
-        bookDiv.appendChild(author);
-
-        const publisher = document.createElement('p');
-        publisher.textContent = `Publisher: ${book.publisher}`;
-        bookDiv.appendChild(publisher);
-
-        const price = document.createElement('p');
-        price.textContent = `Price: ${book.price}`;
-        bookDiv.appendChild(price);
-
         if (book.cover) {
             const coverImage = document.createElement('img');
             coverImage.src = book.cover;
             coverImage.alt = 'Book Cover';
+            coverImage.classList.add('coverImg'); 
             bookDiv.appendChild(coverImage);
         } else {
             const noImage = document.createElement('p');
             noImage.textContent = 'No image!';
             bookDiv.appendChild(noImage);
         }
+
+        const info = document.createElement('p');
+        info.innerHTML = `Author: ${book.author} <br> Publisher: ${book.publisher} <br> Price: ${book.price}`;
+        bookDiv.appendChild(info);
+
+        
         bookList.appendChild(bookDiv);
 
     });
