@@ -27,8 +27,8 @@ h3{
     font-family: "Roboto Light", sans-serif;
 }
 .coverImg{
-    width: 50%; /* Ảnh chiếm 50% chiều rộng của phần tử cha */
-    height: auto; /* Giữ tỷ lệ khung hình */
+    width: 50%; 
+    height: auto; 
     align-self: center;
 }
 .book{
@@ -41,12 +41,11 @@ h3{
 }
 .book:hover {
     cursor: pointer;
-    transform: scale(0.7); /* Phóng to sách khi hover */
+    transform: scale(0.7);
     border: 2px ridge black;
 }
 .book {
-    /* CSS cho sách khi không hover */
-    transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển động */
+    transition: transform 0.3s ease;
 }
 #bookList{
     padding: 10px;

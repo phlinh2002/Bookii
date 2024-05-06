@@ -10,7 +10,7 @@
     cover: string,
 }
 
-//Fetch book from Bookmonkey server
+
 
 async function fetchBooks(): Promise<Book[]> {
     try{
