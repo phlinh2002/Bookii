@@ -1,0 +1,75 @@
+#header{
+    display:flex;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    align-self: center;
+}
+#header_img{
+    width: 100%;
+}
+  
+body {
+    padding: 2px;
+    font-family: "Roboto Light", sans-serif;
+}
+#header_bibliothek{
+    margin-left: 2%;
+    font-family: "Apple Chancery", cursive;
+}
+#main_screen{
+    background-color: #FAF0E6;
+    position: relative;
+    width: 100%;
+    overflow: auto;
+}
+h3{
+    font-family: "Roboto Light", sans-serif;
+}
+.coverImg{
+    width: 50%; 
+    height: auto; 
+    align-self: center;
+}
+.book{
+    display: flex;
+    flex-direction: column;
+    padding: 0 7px 0  7px ;
+    align-items: center;
+    border: 2px ridge black;
+
+}
+.book:hover {
+    cursor: pointer;
+    transform: scale(0.7);
+    border: 2px ridge black;
+}
+.book {
+    transition: transform 0.3s ease;
+}
+#bookList{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19%, 1fr));
+    grid-gap: 2vh; 
+    font-family: "Apple Chancery", cursive;
+   
+} 
+.regularions{
+    display: flex;
+    justify-content: space-between;
+}
+  
+#copyright{
+    font-family: "Roboto Thin", sans-serif;
+}
+
+footer{
+    display:inline-block;
+    flex-direction: row;
+    margin-left: 20px;
+}
+a{
+    margin-right: 10px; /* Adjusted to 10px */
+}
+
