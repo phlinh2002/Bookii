@@ -55,6 +55,32 @@ h3{
     font-family: "Apple Chancery", cursive;
    
 } 
+.like-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .heart-icon {
+    width: 20px;
+    height: 20px;
+    background-color: white; /* Hintergrundfarbe des Herzens */
+    mask-image: url('heart.svg'); /* Maskenbild für das Herzsymbol */
+    mask-size: cover;
+    margin-right: 5px;
+    transition: background-color 0.3s; /* Übergang für die Hintergrundfarbe */
+  }
+  
+  .liked .heart-icon {
+    background-color: red; /* Ändern Sie die Hintergrundfarbe auf Rot, wenn es gemocht wird */
+  }
+  
 #copyright{
     font-family: "Roboto Thin", sans-serif;
 }
