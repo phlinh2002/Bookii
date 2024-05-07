@@ -2,12 +2,14 @@
     title: string,
     subtitle: string,
     isbn: string,
-    abstract: number,
-    numPages: 123,
+    abstract: string,
+    numPages: number,
     author: string,
     publisher: string,
     price: number,
     cover: string,
+    likeCounter: number;
+    userId: number;
 }
 
 
@@ -19,7 +21,8 @@ export async function fetchBooks(): Promise<Book[]> {
             throw new Error('Failed to fetch book')
         }
         const books: Book[] = await response.json();
-        return books;
+        const booksWithInitialLikes = books.map(book => ({ ...book, likeCounter: 0}));
+        return booksWithInitialLikes;
         
     }catch (error){
         console.error('Error fetching books', error)
@@ -27,37 +30,54 @@ export async function fetchBooks(): Promise<Book[]> {
     }
 }
 
-export async function loadBooksOnDisplay(){
-    const books = await fetchBooks();
-    const bookList = document.getElementById('bookList');
-    if(!bookList) return;
-    books.forEach(book => {
-        const bookDiv = document.createElement('div');
-        bookDiv.classList.add('book');
-
-        const title = document.createElement('h3');
-        title.innerHTML = `<em>${book.title}</em>`;
-        bookDiv.appendChild(title);
-        if (book.cover) {
-            const coverImage = document.createElement('img');
-            coverImage.src = book.cover;
-            coverImage.alt = 'Book Cover';
-            coverImage.classList.add('coverImg'); 
-            bookDiv.appendChild(coverImage);
-        } else {
-            const noImage = document.createElement('p');
-            noImage.textContent = 'No image!';
-            bookDiv.appendChild(noImage);
-        }
-
-        const info = document.createElement('p');
-        info.innerHTML = `Author: ${book.author} <br> Publisher: ${book.publisher} <br> Price: ${book.price}`;
-        bookDiv.appendChild(info);
+export async function addBooks(): Promise<void> {
+    try {
+        
+        const booksToAdd: Book[] = [
+            {
+                title: "Book 1",
+                subtitle: "Subtitle 1",
+                isbn: "1234567890",
+                abstract: "Abstract for Book 1",
+                numPages: 200,
+                author: "Author 1",
+                publisher: "Publisher A",
+                price: 19.99,
+                cover: "",
+                likeCounter: 0,
+                userId: 1
+            },
+            {
+                title: "Book 2",
+                subtitle: "Subtitle 2",
+                isbn: "0987654321",
+                abstract: "Abstract for Book 2",
+                numPages: 250,
+                author: "Author 2",
+                publisher: "Publisher B",
+                price: 24.99,
+                cover: "",
+                likeCounter: 0,
+                userId: 1
+            }
+        ];
 
         
-        bookList.appendChild(bookDiv);
+        await Promise.all(booksToAdd.map(book => {
+            return fetch('http://localhost:4730/books', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(book),
+            });
+        }));
 
-    });
-
+        console.log('Books added successfully');
+    } catch (error) {
+        console.error('Error adding books:', error);
+        throw error; // Re-throw the error to handle it elsewhere if needed
+    }
 }
-document.addEventListener("DOMContentLoaded", (event:Event)=>loadBooksOnDisplay());
+
+
