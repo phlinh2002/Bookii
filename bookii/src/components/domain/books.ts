@@ -19,6 +19,7 @@ export async function fetchBooks(): Promise<void> {
             throw new Error('Failed to fetch book')
         }
         const books: Book[] = await response.json();
+        addBooks();
         const booksWithInitialLikes = books.map(book => ({ ...book, likeCounter: 0 }));
         bookArray = booksWithInitialLikes;
     } catch (error) {
@@ -88,6 +89,7 @@ export async function addBooks(): Promise<void> {
         throw error;
     }
 }
+
 
 export { bookArray }
 

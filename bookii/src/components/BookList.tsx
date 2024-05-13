@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { BookItem } from "./BookItem";
-import { Book } from "./domain/books";
+import { Book, addBooks } from "./domain/books";
 import { bookArray, fetchBooks } from "./domain/books";
 
 
@@ -14,7 +14,6 @@ export function BookList() {
             try {
                 await fetchBooks();
                 setBooks(bookArray);
-
             } catch (error) {
                 console.error("Error loading books", error);
             }
