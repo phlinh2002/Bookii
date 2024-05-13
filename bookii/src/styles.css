@@ -1,37 +1,36 @@
-#header{
-    display:flex;
+#header {
+    display: flex;
     width: 100%;
     background-color: white;
     align-items: center;
     align-self: center;
 }
 
-#header_img{
+#header_img {
     width: 100%;
 }
-  
+
 body {
     padding: 2px;
     font-family: "Roboto Light", sans-serif;
     overflow: auto;
-    
-   
 }
-#header_bibliothek{
+
+#header_bibliothek {
     margin-left: 2%;
     font-family: "Apple Chancery", cursive;
 }
-#main_screen{
+
+#main_screen {
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     background-color: #FAF0E6;
     position: relative;
-   
-  
-   
+
 }
-h3{
+
+h3 {
     font-family: "Roboto Light", sans-serif;
     height: 5%;
     padding-left: 7px;
@@ -40,42 +39,45 @@ h3{
 
 .bookCover:hover {
     cursor: pointer;
-    transform: scale(0.7);
 }
-.bookCover{
+
+.bookCover {
     align-self: center;
     margin-top: 20px;
-    zoom:80%;
+    zoom: 80%;
 }
-#noImg{
+
+#noImg {
     background-color: rgb(228, 226, 226);
     padding: 20px 20px 20px 20px;
 }
-.book{
+
+.book {
     display: flex;
     flex-direction: column;
-    padding: 0 5px 0  5px ;
+    padding: 0 5px 0 5px;
     border: 2px ridge rgb(113, 67, 42);
     border-radius: 30px;
     position: relative;
 }
+
 .like-button {
-    position: absolute; 
+    position: absolute;
     right: 5%;
-    top:12%;
+    top: 12%;
     cursor: pointer;
 
-  }
-  
-  .like-button .heart {
+}
+
+.like-button .heart {
     width: 20px;
     height: 20px;
-    background-color:rgb(249, 101, 101);
+    background-color: rgb(249, 101, 101);
     transform: rotate(-45deg);
-  }
-  
-  .like-button .heart:before,
-  .like-button .heart:after {
+}
+
+.like-button .heart:before,
+.like-button .heart:after {
     content: '';
     width: 20px;
     height: 20px;
@@ -83,24 +85,26 @@ h3{
     border-radius: 50%;
     position: absolute;
 
-  }
-  
-  .like-button .heart:before {
+}
+
+.like-button .heart:before {
     top: -10px;
     left: 0;
-  
-  }
-  
-  .like-button .heart:after {
+
+}
+
+.like-button .heart:after {
     top: 0;
     left: 10px;
-  }
-  .like-button.active .heart {
-    transform: scale(1.2) rotate(-45deg); /* Vergrößern beim Aktivieren */
+}
+
+.like-button.active .heart {
+    transform: scale(1.2) rotate(-45deg);
+    /* Vergrößern beim Aktivieren */
 }
 
 
-  .like-popup {
+.like-popup {
     display: none;
     position: absolute;
     transform: translateX(-45%);
@@ -114,31 +118,33 @@ h3{
     display: block;
 }
 
-#bookInfo{
+#bookInfo {
     align-self: start;
 }
-#bookList{
+
+#bookList {
     padding: 2px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(19%, 1fr));
-    grid-gap: 2vh; 
+    grid-gap: 2vh;
     font-family: "Apple Chancery", cursive;
-} 
-.regularions{
+}
+
+.regularions {
     display: flex;
     justify-content: space-between;
 }
-  
-#copyright{
+
+#copyright {
     font-family: "Roboto Thin", sans-serif;
 }
 
-footer{
-    display:inline-block;
+footer {
+    display: inline-block;
     flex-direction: row;
     margin-left: 20px;
 }
-a{
-    margin-right: 10px; 
-}
 
+a {
+    margin-right: 10px;
+}

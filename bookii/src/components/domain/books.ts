@@ -1,4 +1,4 @@
- export interface Book{
+export interface Book {
     title: string,
     subtitle: string,
     isbn: string,
@@ -11,28 +11,24 @@
     likeCounter: number;
     userId: number;
 }
-
-
-
-export async function fetchBooks(): Promise<Book[]> {
-    try{
+let bookArray: Book[] = [];
+export async function fetchBooks(): Promise<void> {
+    try {
         const response = await fetch('http://localhost:4730/books')
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error('Failed to fetch book')
         }
         const books: Book[] = await response.json();
-        const booksWithInitialLikes = books.map(book => ({ ...book, likeCounter: 0}));
-        return booksWithInitialLikes;
-        
-    }catch (error){
+        const booksWithInitialLikes = books.map(book => ({ ...book, likeCounter: 0 }));
+        bookArray = booksWithInitialLikes;
+    } catch (error) {
         console.error('Error fetching books', error)
-        return [];
     }
 }
 
 export async function addBooks(): Promise<void> {
     try {
-        
+
         const booksToAdd: Book[] = [
             {
                 title: "Book 1",
@@ -59,10 +55,23 @@ export async function addBooks(): Promise<void> {
                 cover: "",
                 likeCounter: 0,
                 userId: 1
+            },
+            {
+                title: "Book 3",
+                subtitle: "Subtitle 3",
+                isbn: "0987654321333",
+                abstract: "Abstract for Book 3",
+                numPages: 290,
+                author: "Author ",
+                publisher: "Publisher ",
+                price: 12.99,
+                cover: "",
+                likeCounter: 0,
+                userId: 2
             }
         ];
+        bookArray.push(...booksToAdd);
 
-        
         await Promise.all(booksToAdd.map(book => {
             return fetch('http://localhost:4730/books', {
                 method: 'POST',
@@ -76,8 +85,10 @@ export async function addBooks(): Promise<void> {
         console.log('Books added successfully');
     } catch (error) {
         console.error('Error adding books:', error);
-        throw error; // Re-throw the error to handle it elsewhere if needed
+        throw error;
     }
 }
+
+export { bookArray }
 
 

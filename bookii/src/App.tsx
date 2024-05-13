@@ -1,14 +1,15 @@
 
+import React from 'react';
 import './styles.css'; 
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
-import BookComponent from './components/BookDisplay';
+import {BookList} from './components/BookList';
 
 const BookiiApp: React.FC = () => {
     return (
         <div>
             <AppHeader/>
-            <BookComponent/>
+            <BookList/>
             <AppFooter/>
         </div>
     );
