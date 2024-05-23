@@ -23,11 +23,23 @@ export function BookItem(p: BookItemProps) {
                 <div className="like-popup">{p.book.likeCounter} Likes</div>
             </div>
             <div id="bookInfo">
-                <p>ISBN: {p.book.isbn}</p>
-                <p>Author: {p.book.author}</p>
-                <p>Publisher: {p.book.publisher}</p>
-                <p>Price: {p.book.price}</p>
+                <p id ="bookPrice">{p.book.price}</p>
+                <table>
+                    <tr>
+                        <td className="infoName">ISBN:</td>
+                        <td>{p.book.isbn}</td>
+                    </tr>
+                    <tr>
+                        <td className="infoName">Author:</td>
+                        <td>{p.book.author}</td>
+                    </tr>
+                    <tr>
+                        <td className="infoName">Publisher:</td>
+                        <td>{p.book.publisher}</td>
+                    </tr>
+                </table>
             </div>
+
         </div>
     );
 };

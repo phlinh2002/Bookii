@@ -32,8 +32,10 @@ body {
 
 h3 {
     font-family: "Roboto Light", sans-serif;
-    height: 5%;
+    height: 10%;
+    position: relative;
     padding-left: 7px;
+    padding-top: 7px;
     align-self: center;
 }
 
@@ -43,30 +45,28 @@ h3 {
 
 .bookCover {
     align-self: center;
-    margin-top: 20px;
-    zoom: 80%;
+    zoom: 60%;
+    margin-top: 5%;
 }
 
 #noImg {
     background-color: rgb(228, 226, 226);
-    padding: 20px 20px 20px 20px;
+    align-self: center;
 }
 
 .book {
     display: flex;
     flex-direction: column;
     padding: 0 5px 0 5px;
+    padding-bottom: 3px;
     border: 2px ridge rgb(113, 67, 42);
-    border-radius: 30px;
-    position: relative;
+    border-radius: 10px;
+    position:relative;
 }
 
 .like-button {
     position: absolute;
-    right: 5%;
-    top: 12%;
     cursor: pointer;
-
 }
 
 .like-button .heart {
@@ -98,12 +98,6 @@ h3 {
     left: 10px;
 }
 
-.like-button.active .heart {
-    transform: scale(1.2) rotate(-45deg);
-    /* Vergrößern beim Aktivieren */
-}
-
-
 .like-popup {
     display: none;
     position: absolute;
@@ -120,14 +114,24 @@ h3 {
 
 #bookInfo {
     align-self: start;
+    padding-left: 5%;
 }
 
 #bookList {
     padding: 2px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(19%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(17%, 1fr));
     grid-gap: 2vh;
-    font-family: "Apple Chancery", cursive;
+}
+#bookPrice{
+    text-align: right;
+    font-weight: bold;
+}
+td{
+    padding-bottom: 3%;;
+}
+.infoName{
+    font-weight: bold;
 }
 
 .regularions {
