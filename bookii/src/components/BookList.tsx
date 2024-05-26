@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { BookItem } from "./BookItem";
 import { Book, addBooks } from "./domain/books";
 import { bookArray, fetchBooks } from "./domain/books";
+import '../styles/appStyles.css';
 
 
 export function BookList() {

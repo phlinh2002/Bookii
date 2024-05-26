@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './styles.css'; 
+import './styles/appStyles.css'; 
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import {BookList} from './components/BookList';

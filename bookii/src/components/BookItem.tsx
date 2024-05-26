@@ -1,5 +1,6 @@
 
 import { Book } from "./domain/books";
+import '../styles/appStyles.css';
 
 export interface BookItemProps {
     book: Book;

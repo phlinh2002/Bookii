@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles.css';
+import '../styles/appStyles.css';
 import logo from '../logo.svg';
 
 const AppHeader: React.FC = () => {
