@@ -8,11 +8,11 @@ export interface Book {
     publisher: string,
     price: number,
     cover: string,
-    likeCounter: number;
+    //likeCounter: number;
     userId: number;
 }
 let bookArray: Book[] = [];
-export async function fetchBooks(): Promise<void> {
+export async function fetchBooks(): Promise<Book[]> {
     try {
         const response = await fetch('http://localhost:4730/books')
         if (!response.ok) {
@@ -22,8 +22,10 @@ export async function fetchBooks(): Promise<void> {
         addBooks();
         const booksWithInitialLikes = books.map(book => ({ ...book, likeCounter: 0 }));
         bookArray = booksWithInitialLikes;
+        return books;
     } catch (error) {
-        console.error('Error fetching books', error)
+        console.error('Error fetching books', error);
+        throw error;
     }
 }
 
@@ -41,7 +43,7 @@ export async function addBooks(): Promise<void> {
                 publisher: "Publisher A",
                 price: 19.99,
                 cover: "",
-                likeCounter: 0,
+                //likeCounter: 0,
                 userId: 1
             },
             {
@@ -54,7 +56,7 @@ export async function addBooks(): Promise<void> {
                 publisher: "Publisher B",
                 price: 24.99,
                 cover: "",
-                likeCounter: 0,
+                //likeCounter: 0,
                 userId: 1
             },
             {
@@ -67,7 +69,7 @@ export async function addBooks(): Promise<void> {
                 publisher: "Publisher ",
                 price: 12.99,
                 cover: "",
-                likeCounter: 0,
+                //likeCounter: 0,
                 userId: 2
             }
         ];

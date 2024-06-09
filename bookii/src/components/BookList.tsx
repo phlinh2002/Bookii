@@ -1,13 +1,14 @@
 
 import React, { useEffect, useState } from "react";
 import { BookItem } from "./BookItem";
-import { Book, addBooks } from "./domain/books";
+//import { Book, addBooks } from "./domain/books";
 import { bookArray, fetchBooks } from "./domain/books";
 import '../styles/appStyles.css';
+import useBooks from "./domain/hooks";
 
 
 export function BookList() {
-    const [books, setBooks] = useState<Book[]>([]);
+    /*const [books, setBooks] = useState<Book[]>([]);
 
 
     useEffect(() => {
@@ -21,12 +22,18 @@ export function BookList() {
         };
         loadBooks();
 
-    }, []);
-    const handleLikeClick = (index: number) => {
-        const updatedBooks = [...bookArray];
-        updatedBooks[index].likeCounter++;
-        setBooks(updatedBooks);
-    };
+    }, []);*/
+    const [books,state,error,refresh] = useBooks();
+
+
+    if (state==='loading'){
+        console.log("loading...");
+        return <div> Loading....</div>
+    }
+    if(state==='error'){
+        console.log("error");
+        return <div> Error loading books...</div>
+    }
 
     return (
         <div>
@@ -36,8 +43,7 @@ export function BookList() {
                     {bookArray.map((book, index) => (
                         <BookItem
                             key={index}
-                            book={book}
-                            onLikeClick={() => handleLikeClick(index)}
+                            book={book}  
                         />
                     ))}
                 </div>
@@ -45,5 +51,7 @@ export function BookList() {
         </div>
     );
 };
+
+
 
 
