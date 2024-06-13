@@ -153,3 +153,10 @@ footer {
 a {
     margin-right: 10px;
 }
+#errorLoading{
+    color: red;
+    font-weight: bold;
+}
+.state{
+    margin-left: 20px;
+}

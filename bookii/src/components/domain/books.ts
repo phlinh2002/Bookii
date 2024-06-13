@@ -20,7 +20,7 @@ export async function fetchBooks(): Promise<Book[]> {
         }
         const books: Book[] = await response.json();
         addBooks();
-        const booksWithInitialLikes = books.map(book => ({ ...book, likeCounter: 0 }));
+        const booksWithInitialLikes = books.map(book => ({ ...book}));
         bookArray = booksWithInitialLikes;
         return books;
     } catch (error) {

@@ -7,7 +7,7 @@ import '../styles/appStyles.css';
 import useBooks from "./domain/hooks";
 
 
-export function BookList() {
+const BookList: React.FC=()=> {
     /*const [books, setBooks] = useState<Book[]>([]);
 
 
@@ -28,30 +28,34 @@ export function BookList() {
 
     if (state==='loading'){
         console.log("loading...");
-        return <div> Loading....</div>
+        return <div className="state"> Loading....</div>
     }
     if(state==='error'){
         console.log("error");
-        return <div> Error loading books...</div>
+        return <div className="state" id="errorLoading"> !!! Error loading books !!!</div>
     }
-
-    return (
-        <div>
-            <h2 id="header_bibliothek">Discover your Books</h2>
-            <div id="main_screen">
-                <div id="bookList">
-                    {bookArray.map((book, index) => (
-                        <BookItem
-                            key={index}
-                            book={book}  
-                        />
-                    ))}
+    if(state==='success'){
+        console.log("success");
+        return (
+            <div>
+                <h2 id="header_bibliothek">Discover your Books</h2>
+                <div id="main_screen">
+                    <div id="bookList">
+                        {bookArray.map((book, index) => (
+                            <BookItem
+                                key={index}
+                                book={book}  
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+
+    }
+    
 };
 
 
 
-
+export default BookList;
