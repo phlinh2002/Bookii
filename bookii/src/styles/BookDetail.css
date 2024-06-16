@@ -1,0 +1,27 @@
+
+.detailsBoard{
+    width: 50%;
+    text-align: center;
+    height: fit-content;
+    border: 2px solid #ccc;
+    border-radius: 10px; 
+    padding: 20px; 
+    margin: auto;
+    background-color: #FAF0E6;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+}
+.detailsList{
+    font-size: 20px;
+    text-align: left;
+}
+#back{
+   justify-self: left;
+}
+#homebutton{
+    justify-self: left;
+    text-align: left;
+}
+
+
+

@@ -4,6 +4,7 @@
     background-color: white;
     align-items: center;
     align-self: center;
+    margin-top:5%;
 }
 
 #header_img {
@@ -13,20 +14,22 @@
 body {
     padding: 2px;
     font-family: "Roboto Light", sans-serif;
-    overflow: auto;
+    overflow:auto;
 }
 
 #header_bibliothek {
-    margin-left: 2%;
     font-family: "Apple Chancery", cursive;
+    z-index: 1;
 }
 
 #main_screen {
+    
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     background-color: #FAF0E6;
     position: relative;
+    border-radius: 10px;
 
 }
 
@@ -44,6 +47,8 @@ h3 {
 }
 
 .bookCover {
+    justify-content: center;
+    display:flex;
     align-self: center;
     zoom: 60%;
     margin-top: 5%;
@@ -61,7 +66,7 @@ h3 {
     padding-bottom: 3px;
     border: 2px ridge rgb(113, 67, 42);
     border-radius: 10px;
-    position:relative;
+    position: relative;
 }
 
 .like-button {
@@ -123,15 +128,21 @@ h3 {
     grid-template-columns: repeat(auto-fit, minmax(17%, 1fr));
     grid-gap: 2vh;
 }
-#bookPrice{
+
+#bookPrice {
     text-align: right;
     font-weight: bold;
 }
-td{
-    padding-bottom: 3%;;
+
+td {
+    padding-bottom: 3%;
+    ;
 }
-.infoName{
+
+.infoName {
     font-weight: bold;
+    align-self: flex-start;
+    display:flex;
 }
 
 .regularions {
@@ -148,15 +159,94 @@ footer {
     flex-direction: row;
     margin-left: 20px;
     margin-bottom: 20px;
+
 }
 
-a {
-    margin-right: 10px;
+footer a {
+    color: black; 
+    text-decoration: none; 
+    padding: 3px;
 }
-#errorLoading{
+a:hover {
+    text-decoration: underline;
+}
+
+#errorLoading {
     color: red;
     font-weight: bold;
 }
-.state{
+
+.state {
     margin-left: 20px;
 }
+
+.buttonList ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+
+    
+}
+
+li {
+    text-decoration: none;
+}
+
+.buttonList {
+    background-color: white;
+    font-size: 15px;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    position:fixed;
+    height: fit-content;
+    top:0;
+    z-index: 2;
+    border-top: 3px solid burlywood; 
+
+    
+}
+.menuButton {
+    
+    margin-right: 3%;
+}
+
+.buttonList ul li :hover {
+    color: #08520E;
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+.pagination button {
+    cursor: pointer;
+    background-color: wheat;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+
+    margin: 10px 5px 10px 0;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+

@@ -9,7 +9,7 @@ const AppFooter: React.FC = () => {
             <div className='regulations'>
             <a  href="https://aboutus/">About us </a>
          
-            <a  href="https://copypaste24.de/datenschutz/"> Datenschutzbestimmungen </a>
+            <a  href="https://copypaste24.de/datenschutz/"> Private Policy </a>
          
             <a  href="https://www.htw-berlin.de/impressum/"> Impressum </a>
 

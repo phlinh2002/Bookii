@@ -8,21 +8,37 @@ export interface Book {
     publisher: string,
     price: number,
     cover: string,
-    //likeCounter: number;
     userId: number;
 }
-let bookArray: Book[] = [];
-export async function fetchBooks(): Promise<Book[]> {
+
+export async function fetchBooks(page:number,limit:number=10): Promise<Book[]> {
     try {
-        const response = await fetch('http://localhost:4730/books')
+        const response = await fetch(`http://localhost:4730/books?_page=${page}&_limit=${limit}`);
         if (!response.ok) {
             throw new Error('Failed to fetch book')
         }
-        const books: Book[] = await response.json();
-        addBooks();
-        const booksWithInitialLikes = books.map(book => ({ ...book}));
-        bookArray = booksWithInitialLikes;
+        
+        if(page===1){
+            addBooks();
+        }
+        const books =  await response.json();
+        
         return books;
+    } catch (error) {
+        console.error('Error fetching books', error);
+        throw error;
+    }
+}
+
+let allBooks: Book[] =[];
+export async function fetchBooksAll():Promise<Book[]>{
+    try {
+        const response = await fetch('http://localhost:4730/books');
+        if (!response.ok) {
+            throw new Error('Failed to fetch book')
+        }
+        allBooks = await response.json();
+        return allBooks;
     } catch (error) {
         console.error('Error fetching books', error);
         throw error;
@@ -43,7 +59,6 @@ export async function addBooks(): Promise<void> {
                 publisher: "Publisher A",
                 price: 19.99,
                 cover: "",
-                //likeCounter: 0,
                 userId: 1
             },
             {
@@ -56,7 +71,6 @@ export async function addBooks(): Promise<void> {
                 publisher: "Publisher B",
                 price: 24.99,
                 cover: "",
-                //likeCounter: 0,
                 userId: 1
             },
             {
@@ -69,11 +83,10 @@ export async function addBooks(): Promise<void> {
                 publisher: "Publisher ",
                 price: 12.99,
                 cover: "",
-                //likeCounter: 0,
                 userId: 2
             }
         ];
-        bookArray.push(...booksToAdd);
+
 
         await Promise.all(booksToAdd.map(book => {
             return fetch('http://localhost:4730/books', {
@@ -93,6 +106,6 @@ export async function addBooks(): Promise<void> {
 }
 
 
-export { bookArray }
+
 
 

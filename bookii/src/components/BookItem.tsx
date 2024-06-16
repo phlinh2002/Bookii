@@ -3,6 +3,7 @@ import { Book } from "./domain/books";
 import '../styles/appStyles.css';
 import { LikeCounter } from "./LikeButton";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export interface BookItemProps {
     book: Book;
@@ -19,6 +20,7 @@ export function BookItem({ book}: BookItemProps) {
     return (
         <div className="book">
             <h3>{book.title}</h3>
+            <Link to={`/book/${book.isbn}`}>
             <div className="bookCover">
                 {book.cover ? (
                     <img src={book.cover} alt={book.title} />
@@ -26,6 +28,9 @@ export function BookItem({ book}: BookItemProps) {
                     <p id="noImg">No image!</p>
                 )}
             </div>
+
+            </Link>
+            
             <LikeCounter  likes={bookLikes} onLikesChange={handleLikeClick}/>
             <div id="bookInfo">
                 <p id ="bookPrice">{book.price}</p>
