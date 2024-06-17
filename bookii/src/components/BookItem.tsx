@@ -10,8 +10,8 @@ export interface BookItemProps {
 
 }
 
-export function BookItem({ book}: BookItemProps) {
-    const [bookLikes, setBookLikes] = useState(0); 
+export function BookItem({ book }: BookItemProps) {
+    const [bookLikes, setBookLikes] = useState(0);
 
     const handleLikeClick = (newLikes: number) => {
         setBookLikes(newLikes);
@@ -21,19 +21,23 @@ export function BookItem({ book}: BookItemProps) {
         <div className="book">
             <h3>{book.title}</h3>
             <Link to={`/book/${book.isbn}`}>
-            <div className="bookCover">
-                {book.cover ? (
-                    <img src={book.cover} alt={book.title} />
-                ) : (
-                    <p id="noImg">No image!</p>
-                )}
-            </div>
+                <div className="bookCover">
+                    {book.cover ? (
+                        <img src={book.cover} alt={book.title} />
+                    ) : (
+                        <p id="noImg">No image!</p>
+
+                    )}
+                    <div className="popup"> More details </div>
+                </div>
 
             </Link>
-            
-            <LikeCounter  likes={bookLikes} onLikesChange={handleLikeClick}/>
+
+            <LikeCounter likes={bookLikes} onLikesChange={handleLikeClick} />
             <div id="bookInfo">
-                <p id ="bookPrice">{book.price}</p>
+                
+
+                <p id="bookPrice">{book.price}</p>
                 <table>
                     <tr>
                         <td className="infoName">ISBN:</td>

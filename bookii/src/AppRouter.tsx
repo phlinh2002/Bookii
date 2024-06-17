@@ -8,6 +8,7 @@ import { AddBook } from "./components/AddBook";
 import BookList from "./components/BookList";
 import HomeNavigator from "./components/HomeNavigator";
 import BookDetailScreen from "./screens/BookDetails";
+import EditBookScreen from "./screens/EditBook";
 //import React from 'react';
 
 export const router = createBrowserRouter([
@@ -43,6 +44,12 @@ export const router = createBrowserRouter([
     {
         path:"/book/:isbn",
         element:<BookDetailScreen/>,
+       
+    }, 
+    {
+        path:"/book/:isbn/edit",
+        element:<EditBookScreen/>
     }
+
    
 ]);

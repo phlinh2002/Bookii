@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Book } from '../components/domain/books';
 import AppHeader from '../components/AppHeader';
 import AppFooter from '../components/AppFooter';
@@ -83,6 +83,11 @@ const BookDetailScreen: React.FC = () => {
                     </tr>
 
                 </table>
+                <Link to={`/book/${book.isbn}/edit`}>
+                <button id="edit-button">Edit</button>
+                </Link>
+                    
+                
 
 
             </div>

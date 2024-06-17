@@ -10,14 +10,34 @@
     background-color: #FAF0E6;
     margin-bottom: 5vh;
     margin-top: 5vh;
+    align-items: center;
 }
 .detailsList{
     font-size: 20px;
     text-align: left;
+    justify-content: center;
+    width: 100%; 
+    max-width: 80%;
+    padding-left: 10px;
+    padding-right:10px
 }
-#back{
-   justify-self: left;
+.input-change textarea{
+    font-size: 15px;
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    width: 80vh;
+    height: 10vh;
+    
+    overflow-wrap: break-word;
+    white-space: pre-wrap; /* Automatisches Umbruchverhalten für lange Wörter und Zeilen */
+    word-wrap: break-word; 
+    
+    
+     
 }
+
+
 #homebutton{
     justify-self: left;
     text-align: left;

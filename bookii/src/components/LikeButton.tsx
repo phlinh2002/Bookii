@@ -15,7 +15,7 @@ export function LikeCounter({ likes,onLikesChange} :LikeCounterProps){
     return (
         <div className="like-button" onClick={incrementCounters}>
                 <div className="heart"></div>
-                <div className="like-popup">{count} Likes</div>
+                <div className="popup">{count} Likes</div>
         </div>
 
     )
