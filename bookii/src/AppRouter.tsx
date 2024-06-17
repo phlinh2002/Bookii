@@ -4,12 +4,12 @@ import './styles/App.css';
 import './styles/appStyles.css';
 import { ErrorScreen } from "./screens/ErrorScreen";
 import { AboutScreen } from './screens/AboutScreen';
-import { AddBook } from "./components/AddBook";
+import AddBookScreen from "./screens/AddBook";
 import BookList from "./components/BookList";
 import HomeNavigator from "./components/HomeNavigator";
 import BookDetailScreen from "./screens/BookDetails";
 import EditBookScreen from "./screens/EditBook";
-//import React from 'react';
+
 
 export const router = createBrowserRouter([
     {
@@ -26,10 +26,7 @@ export const router = createBrowserRouter([
                 path:"/booklist",
                 element:<BookList/>
             },
-            {
-                path:"/add-book",
-                element: <AddBook />
-            },
+            
             {
                 path:"/about",
                 element:<AboutScreen/>
@@ -37,17 +34,21 @@ export const router = createBrowserRouter([
         ]
     },
     {
+        path:"/add-book",
+        element: <AddBookScreen/>
+    },
+    {
         path: "/about",
         element: <AboutScreen />,
         errorElement: <ErrorScreen />,
     },
     {
-        path:"/book/:isbn",
+        path:"/book/:id",
         element:<BookDetailScreen/>,
        
     }, 
     {
-        path:"/book/:isbn/edit",
+        path:"/book/:id/edit",
         element:<EditBookScreen/>
     }
 

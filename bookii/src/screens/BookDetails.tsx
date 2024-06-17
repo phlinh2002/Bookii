@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Book } from '../components/domain/books';
 import AppHeader from '../components/AppHeader';
 import AppFooter from '../components/AppFooter';
@@ -9,7 +9,9 @@ import MenuBars from '../components/MenuBars';
 
 
 const BookDetailScreen: React.FC = () => {
+    const navigate = useNavigate();
     const { isbn } = useParams<{ isbn: string }>();
+    const { id } = useParams<{ id: string }>();
     const [book, setBook] = useState<Book | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -17,7 +19,7 @@ const BookDetailScreen: React.FC = () => {
     useEffect(() => {
         const fetchBookDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:4730/books/${isbn}`);
+                const response = await fetch(`http://localhost:4730/books/${id}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch book details');
                 }
@@ -31,7 +33,7 @@ const BookDetailScreen: React.FC = () => {
         };
 
         fetchBookDetails();
-    }, [isbn]);
+    }, [id]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -45,13 +47,38 @@ const BookDetailScreen: React.FC = () => {
         return <div>Book not found</div>;
     }
 
+
+    const handleDelete = async () => {
+        try {
+
+            const response = await fetch(`http://localhost:4730/books/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(book),
+            });
+            if (!response.ok) {
+                throw new Error('Failed to delete book');
+            } else {
+                setTimeout(() => {
+                    alert('Deleted');
+                    navigate(`/`);
+                }, 500);
+            }
+
+        } catch (error) {
+            setError("Error " + error);
+        }
+    };
+
     return (
         <div >
             <AppHeader />
-            <MenuBars/>
+            <MenuBars />
 
             <div className='detailsBoard'>
-            
+
                 <h2>{book.title}</h2>
                 <div >
                     <img src={book.cover} alt="Book Cover" />
@@ -59,7 +86,9 @@ const BookDetailScreen: React.FC = () => {
                 <table className='detailsList'>
                     <tr>
                         <td className="infoName">ISBN:</td>
-                        <td>{book.isbn}</td>
+                        <td >{book.isbn}
+                        </td>
+
                     </tr>
                     <tr>
                         <td className="infoName">Author:</td>
@@ -83,20 +112,15 @@ const BookDetailScreen: React.FC = () => {
                     </tr>
 
                 </table>
-                <Link to={`/book/${book.isbn}/edit`}>
-                <button id="edit-button">Edit</button>
-                </Link>
-                    
-                
-
-
+                <div className='button-container'>
+                    <Link to={`/book/${book.id}/edit`}>
+                        <button id="edit-delete-button">Edit</button>
+                    </Link>
+                    <button id='edit-delete-button' onClick={handleDelete}>Delete</button>
+                </div>
             </div>
-
-
-
             <AppFooter />
         </div>
     );
 };
-
 export default BookDetailScreen;

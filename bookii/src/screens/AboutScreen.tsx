@@ -1,8 +1,9 @@
+import '../styles/appStyles.css'
 export const AboutScreen = function () {
     return (
-        <div>
+        <div id="main_screen" >
             <h2>About</h2>
-            <div>Made at HTW Berlin</div>
+            <div>Made at HTW Berlin by Hoai Linh Pham</div>
             <br />
             <ul style={{ listStyle: "none" }}>
                 <li style={{ listStyle: "none" }}>FED</li>

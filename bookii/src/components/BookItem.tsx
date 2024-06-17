@@ -20,7 +20,7 @@ export function BookItem({ book }: BookItemProps) {
     return (
         <div className="book">
             <h3>{book.title}</h3>
-            <Link to={`/book/${book.isbn}`}>
+            <Link to={`/book/${book.id}`}>
                 <div className="bookCover">
                     {book.cover ? (
                         <img src={book.cover} alt={book.title} />

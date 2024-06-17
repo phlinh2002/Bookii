@@ -1,47 +1,64 @@
-
-.detailsBoard{
+.detailsBoard {
     width: 50%;
     text-align: center;
     height: fit-content;
     border: 2px solid #ccc;
-    border-radius: 10px; 
-    padding: 20px; 
+    border-radius: 10px;
+    padding: 20px;
     margin: auto;
     background-color: #FAF0E6;
     margin-bottom: 5vh;
     margin-top: 5vh;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.detailsList{
+
+.detailsList {
     font-size: 20px;
     text-align: left;
     justify-content: center;
-    width: 100%; 
+    width: 100%;
     max-width: 80%;
-    padding-left: 10px;
-    padding-right:10px
+    padding-left: 20px;
+    padding-right: 20px;
 }
-.input-change textarea{
+
+.input-change textarea {
     font-size: 15px;
-    padding: 10px; 
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px; 
+    border-radius: 5px;
     width: 80vh;
     height: 10vh;
-    
+
     overflow-wrap: break-word;
-    white-space: pre-wrap; /* Automatisches Umbruchverhalten für lange Wörter und Zeilen */
-    word-wrap: break-word; 
-    
-    
-     
-}
+    white-space: pre-wrap;
+    word-wrap: break-word;
 
 
-#homebutton{
-    justify-self: left;
-    text-align: left;
 }
 
 
 
+.save-change-button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.save-change-button button {
+    padding: 5px 5px;
+    font-size: 12px;
+    height: 30px;
+    
+}
+
+.save-change-button button:hover{
+    cursor: pointer;
+}
+.detailsList td{
+    padding: 10px;
+}

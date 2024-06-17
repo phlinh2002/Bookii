@@ -23,7 +23,7 @@ body {
 }
 
 #main_screen {
-    
+    padding-bottom: 10px;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -254,14 +254,20 @@ a:visited {
     align-items: center;
     margin-top: 20px;
 }
-#edit-button{
+#edit-delete-button{
     cursor: pointer;
     background-color: #F8F8FF;
+    
     color: black;
-    display: flex;
-    margin: auto;
+    
+   
     border: 1px solid whitesmoke;
     padding: 5px 20px 5px 20px;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     
 }
 
