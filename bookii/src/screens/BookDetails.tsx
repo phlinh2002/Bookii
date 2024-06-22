@@ -10,7 +10,6 @@ import MenuBars from '../components/MenuBars';
 
 const BookDetailScreen: React.FC = () => {
     const navigate = useNavigate();
-    const { isbn } = useParams<{ isbn: string }>();
     const { id } = useParams<{ id: string }>();
     const [book, setBook] = useState<Book | null>(null);
     const [loading, setLoading] = useState(true);
@@ -80,7 +79,7 @@ const BookDetailScreen: React.FC = () => {
             <div className='detailsBoard'>
 
                 <h2>{book.title}</h2>
-                <div >
+                <div className='bookCover' >
                     <img src={book.cover} alt="Book Cover" />
                 </div>
                 <table className='detailsList'>

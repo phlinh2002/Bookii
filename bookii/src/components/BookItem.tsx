@@ -28,7 +28,7 @@ export function BookItem({ book }: BookItemProps) {
                         <p id="noImg">No image!</p>
 
                     )}
-                    <div className="popup"> More details </div>
+                    <div className="popup"> More details... </div>
                 </div>
 
             </Link>

@@ -8,8 +8,8 @@ const LogoNavigator: React.FC = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-    refresh();
     navigate('/booklist');
+    refresh();
   }, [setCurrentPage, refresh, navigate]);
 
   return null;
