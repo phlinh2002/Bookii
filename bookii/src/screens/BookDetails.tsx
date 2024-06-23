@@ -111,7 +111,7 @@ const BookDetailScreen: React.FC = () => {
                         <td>{book.numPages}</td>
                     </tr>
                     <tr>
-                        <td className="infoName">Price</td>
+                        <td className="infoName">Price: </td>
                         <td>{book.price}</td>
                     </tr>
                     <tr>

@@ -106,7 +106,7 @@ const AddBookScreen: React.FC = () => {
             <AppHeader />
             <MenuBars />
             <div className='detailsBoard'>
-                <h2 id="editscreen-title">Edit Book</h2>
+                <h2 id="editscreen-title">Add Book</h2>
                 <table className='detailsList'>
                     <tr>
                         <td className='infoName'>Cover:</td>

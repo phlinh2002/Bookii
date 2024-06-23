@@ -69,7 +69,7 @@ export async function fetchBooks(page:number,limit:number=10): Promise<Book[]> {
         throw error;
     }
 }
-
+addBooks(booksToAdd);
 let allBooks: Book[] =[];
 export async function fetchBooksAll():Promise<Book[]>{
     try {
@@ -78,8 +78,6 @@ export async function fetchBooksAll():Promise<Book[]>{
             throw new Error('Failed to fetch book')
         }
         allBooks = await response.json();
-        addBooks(booksToAdd);
-        
         return allBooks;
     } catch (error) {
         console.error('Error fetching books', error);
