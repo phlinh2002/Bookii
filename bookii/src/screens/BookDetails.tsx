@@ -84,6 +84,11 @@ const BookDetailScreen: React.FC = () => {
                 </div>
                 <table className='detailsList'>
                     <tr>
+                        <td className='infoName'>ID:</td>
+                        <td>{book.id}</td>
+                    </tr>
+
+                    <tr>
                         <td className="infoName">ISBN:</td>
                         <td >{book.isbn}
                         </td>
@@ -108,6 +113,10 @@ const BookDetailScreen: React.FC = () => {
                     <tr>
                         <td className="infoName">Price</td>
                         <td>{book.price}</td>
+                    </tr>
+                    <tr>
+                        <td className='infoName'>User ID:</td>
+                        <td>{book.userId}</td>
                     </tr>
 
                 </table>
