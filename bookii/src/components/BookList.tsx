@@ -3,7 +3,12 @@ import React, { useEffect} from "react";
 import { BookItem } from "./BookItem";
 import '../styles/appStyles.css';
 import useBooks from "./domain/hooks";
-
+import MenuBars from "./MenuBars";
+import AppHeader from "./AppHeader";
+import AppFooter from "./AppFooter";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "./store/store";
 
 const BookList: React.FC=()=> {
     const [
@@ -15,22 +20,9 @@ const BookList: React.FC=()=> {
         currentPage,
         totalPages,
     ] = useBooks();
+    const navigate = useNavigate();
+    const role = useSelector((state:RootState)=>state.user.role);
 
-/*
-    useEffect(() => {
-        const loadBooks = async () => {
-            try {
-                await fetchBooks();
-                setBooks(bookArray);
-            } catch (error) {
-                console.error("Error loading books", error);
-            }
-        };
-        loadBooks();
-
-    }, []);*/
-    //const [books,state,error,refresh,goToNextPage,goToPrevPage,goToFirstPage,goToLastPage] = useBooks(1,10);
-    
 
 
 
@@ -50,8 +42,10 @@ const BookList: React.FC=()=> {
         console.log("success");
         return (
             <div>
+                <AppHeader/>
+                <MenuBars onLogout={()=>navigate('/')} />
                 <div id="main_screen">
-                <h2 id="header_bibliothek">Discover your Books</h2>
+                <h2 id="header_bibliothek">Discover your book</h2>
                     <div id="bookList">
                         {books.map((book, index) => (
                             <BookItem
@@ -72,6 +66,7 @@ const BookList: React.FC=()=> {
                        
                     </div>
                 </div>
+            <AppFooter/>
             </div>
         );
         

@@ -1,3 +1,4 @@
+
 import { createBrowserRouter } from "react-router-dom";
 import BookiiApp from "./App";
 import './styles/App.css';
@@ -6,9 +7,9 @@ import { ErrorScreen } from "./screens/ErrorScreen";
 import { AboutScreen } from './screens/AboutScreen';
 import AddBookScreen from "./screens/AddBook";
 import BookList from "./components/BookList";
-import HomeNavigator from "./components/HomeNavigator";
 import BookDetailScreen from "./screens/BookDetails";
 import EditBookScreen from "./screens/EditBook";
+import LoginScreen from "./screens/LoginScreen";
 
 
 export const router = createBrowserRouter([
@@ -18,20 +19,14 @@ export const router = createBrowserRouter([
         errorElement: <ErrorScreen />,
         children:[
             {
-                path:"/",
-                element:<HomeNavigator/>
-            },
-           
-            {
-                path:"/booklist",
-                element:<BookList/>
-            },
-            
-            {
                 path:"/about",
                 element:<AboutScreen/>
             }
         ]
+    },
+    {
+        path:'/booklist',
+        element:<BookList />
     },
     {
         path:"/add-book",
@@ -50,7 +45,12 @@ export const router = createBrowserRouter([
     {
         path:"/book/:id/edit",
         element:<EditBookScreen/>
-    }
+    },
+    {
+        path:"/login",
+        element:<LoginScreen onLogin={(userRole: string) => {}} />
+    },
 
    
 ]);
+

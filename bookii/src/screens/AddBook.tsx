@@ -104,7 +104,7 @@ const AddBookScreen: React.FC = () => {
     return (
         <div>
             <AppHeader />
-            <MenuBars />
+            <MenuBars onLogout={()=>{}}  />
             <div className='detailsBoard'>
                 <h2 id="editscreen-title">Add Book</h2>
                 <table className='detailsList'>
@@ -182,7 +182,7 @@ const AddBookScreen: React.FC = () => {
                 </table>
                 <div className='save-change-button'>
                     <button type="submit" onClick={handleSave}>Save</button>
-                    <Link to={`/`}>
+                    <Link to={`/booklist`}>
                         <button type="button">Cancel</button>
                     </Link>
                     {error && <div className="error-message">{error}</div>}

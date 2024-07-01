@@ -83,7 +83,7 @@ const EditBookScreen: React.FC = () => {
     return (
         <div>
             <AppHeader />
-            <MenuBars />
+            <MenuBars onLogout={()=>{}}  />
             <div className='detailsBoard'>
                 <h2 id="editscreen-title">Edit Book</h2>
                 <div >

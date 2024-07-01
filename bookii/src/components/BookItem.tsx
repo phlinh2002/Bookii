@@ -4,18 +4,24 @@ import '../styles/appStyles.css';
 import { LikeCounter } from "./LikeButton";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "./store/store";
 
 export interface BookItemProps {
     book: Book;
-
 }
 
-export function BookItem({ book }: BookItemProps) {
+export function BookItem({ book}: BookItemProps) {
     const [bookLikes, setBookLikes] = useState(0);
+    const role = useSelector((state:RootState)=>state.user.role)
 
     const handleLikeClick = (newLikes: number) => {
         setBookLikes(newLikes);
     };
+    const handleBuy = ()=>{
+        //Buy
+        alert('Added book in cart');
+    }
 
     return (
         <div className="book">
@@ -36,9 +42,13 @@ export function BookItem({ book }: BookItemProps) {
             <LikeCounter likes={bookLikes} onLikesChange={handleLikeClick} />
             <div id="bookInfo">
                 
-
                 <p id="bookPrice">{book.price}</p>
                 <table>
+                    {role === 'non-admin' && (
+                        
+                        <button onClick={handleBuy}>Buy</button>
+                     )}
+                    
                     <tr>
                         <td className="infoName">ISBN:</td>
                         <td>{book.isbn}</td>

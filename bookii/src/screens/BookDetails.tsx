@@ -6,15 +6,23 @@ import AppHeader from '../components/AppHeader';
 import AppFooter from '../components/AppFooter';
 import '../styles/BookDetail.css'
 import MenuBars from '../components/MenuBars';
+import { useSelector } from 'react-redux';
+import { RootState } from '../components/store/store';
 
 
-const BookDetailScreen: React.FC = () => {
+
+const BookDetailScreen: React.FC=() => {
     const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const [book, setBook] = useState<Book | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    const role =useSelector((state: RootState)=>state.user.role)
+    const handleBuy = () => {
+        // Implement buy functionality here
+        alert('Book bought!');
+      };
     useEffect(() => {
         const fetchBookDetails = async () => {
             try {
@@ -74,7 +82,7 @@ const BookDetailScreen: React.FC = () => {
     return (
         <div >
             <AppHeader />
-            <MenuBars />
+            <MenuBars onLogout={()=>navigate('/')} />
 
             <div className='detailsBoard'>
 
@@ -120,12 +128,22 @@ const BookDetailScreen: React.FC = () => {
                     </tr>
 
                 </table>
-                <div className='button-container'>
+                {role === 'admin' ? (
+                        <>
+                             <div className='button-container'>
                     <Link to={`/book/${book.id}/edit`}>
                         <button id="edit-delete-button">Edit</button>
                     </Link>
                     <button id='edit-delete-button' onClick={handleDelete}>Delete</button>
                 </div>
+                        </>
+                    ) : (
+                        <>
+                             <button onClick={handleBuy}>Buy</button>
+
+                        </>
+                    )}
+               
             </div>
             <AppFooter />
         </div>
