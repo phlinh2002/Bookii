@@ -1,5 +1,5 @@
 export interface Book {
-    id:string,
+    id:number,
     title: string,
     subtitle: string,
     isbn: string,
@@ -7,13 +7,13 @@ export interface Book {
     numPages: number,
     author: string,
     publisher: string,
-    price: number,
+    price: string,
     cover: string,
     userId: number;
 }
 const booksToAdd: Book[] = [
     {
-        id:"1234567890",
+        id:1234567890,
         title: "Book 1",
         subtitle: "Subtitle 1",
         isbn: "1234567890",
@@ -21,12 +21,12 @@ const booksToAdd: Book[] = [
         numPages: 200,
         author: "Author 1",
         publisher: "Publisher A",
-        price: 19.99,
+        price: "19.99",
         cover: "",
         userId: 1
     },
     {
-        id: "0900",
+        id: 900,
         title: "Book 2",
         subtitle: "Subtitle 2",
         isbn: "0900",
@@ -34,12 +34,12 @@ const booksToAdd: Book[] = [
         numPages: 250,
         author: "Author 2",
         publisher: "Publisher B",
-        price: 24.99,
+        price: "24.99",
         cover: "",
         userId: 1
     },
     {
-        id:"098",
+        id:98,
         title: "Book 3",
         subtitle: "Subtitle 3",
         isbn: "098",
@@ -47,7 +47,7 @@ const booksToAdd: Book[] = [
         numPages: 290,
         author: "Author ",
         publisher: "Publisher ",
-        price: 12.99,
+        price: "12.99",
         cover: "",
         userId: 2
     }

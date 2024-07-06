@@ -4,8 +4,9 @@ import '../styles/appStyles.css';
 import { LikeCounter } from "./LikeButton";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./store/store";
+import { addToCart } from "./store/cartSlice";
 
 export interface BookItemProps {
     book: Book;
@@ -14,12 +15,14 @@ export interface BookItemProps {
 export function BookItem({ book}: BookItemProps) {
     const [bookLikes, setBookLikes] = useState(0);
     const role = useSelector((state:RootState)=>state.user.role)
+    const dispatch = useDispatch();
 
     const handleLikeClick = (newLikes: number) => {
         setBookLikes(newLikes);
     };
+    
     const handleBuy = ()=>{
-        //Buy
+        dispatch(addToCart(book));
         alert('Added book in cart');
     }
 

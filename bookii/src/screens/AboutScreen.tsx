@@ -1,7 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+import AppHeader from '../components/AppHeader'
+import MenuBars from '../components/MenuBars'
 import '../styles/appStyles.css'
+import AppFooter from '../components/AppFooter';
 export const AboutScreen = function () {
+    const navigate= useNavigate();
     return (
-        <div id="main_screen" >
+        <div  >
+            <AppHeader/>
+            <MenuBars onLogout={()=>navigate('/')} />
+            <div id='main_screen'>
             <h2>About</h2>
             <div>Made at HTW Berlin by Hoai Linh Pham</div>
             <br />
@@ -11,6 +19,10 @@ export const AboutScreen = function () {
                 <li style={{ listStyle: "none" }}>Fachbereich 4</li>
                 <li style={{ listStyle: "none" }}>Angewandte Informatik</li>
             </ul>
+
+            </div>
+            
+            <AppFooter/>
         </div>
     );
 };

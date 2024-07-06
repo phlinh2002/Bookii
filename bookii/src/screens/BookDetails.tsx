@@ -18,11 +18,9 @@ const BookDetailScreen: React.FC=() => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+
+
     const role =useSelector((state: RootState)=>state.user.role)
-    const handleBuy = () => {
-        // Implement buy functionality here
-        alert('Book bought!');
-      };
     useEffect(() => {
         const fetchBookDetails = async () => {
             try {
@@ -54,6 +52,9 @@ const BookDetailScreen: React.FC=() => {
         return <div>Book not found</div>;
     }
 
+    const back=()=>{
+        navigate("/booklist")
+    }
 
     const handleDelete = async () => {
         try {
@@ -70,7 +71,7 @@ const BookDetailScreen: React.FC=() => {
             } else {
                 setTimeout(() => {
                     alert('Deleted');
-                    navigate(`/`);
+                    navigate(`/booklist`);
                 }, 500);
             }
 
@@ -139,7 +140,7 @@ const BookDetailScreen: React.FC=() => {
                         </>
                     ) : (
                         <>
-                             <button onClick={handleBuy}>Buy</button>
+                             <button id='edit-delete-button' onClick={back}>Back</button>
 
                         </>
                     )}

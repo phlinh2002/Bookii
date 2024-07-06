@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './styles/appStyles.css';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import LoginScreen from './screens/LoginScreen';
 import MenuBars from './components/MenuBars';
 

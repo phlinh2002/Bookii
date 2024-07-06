@@ -10,7 +10,7 @@ const AddBookScreen: React.FC = () => {
     const navigate = useNavigate();
 
     const initialBookState: Book = {
-        id: '',
+        id: 0,
         title: '',
         subtitle: '',
         isbn: '',
@@ -18,7 +18,7 @@ const AddBookScreen: React.FC = () => {
         numPages: 0,
         author: '',
         publisher: '',
-        price: 0,
+        price: '',
         cover: '',
         userId: 1,
     };
@@ -49,7 +49,7 @@ const AddBookScreen: React.FC = () => {
             valid = false;
             setError(errors.isbn)
         }
-        if (isNaN(Number(book.price))) {
+        if (!book.price.trim()) {
             errors.price = 'Price must be a valid number';
             valid = false;
         }

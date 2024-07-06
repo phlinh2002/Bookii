@@ -86,9 +86,7 @@ const EditBookScreen: React.FC = () => {
             <MenuBars onLogout={()=>{}}  />
             <div className='detailsBoard'>
                 <h2 id="editscreen-title">Edit Book</h2>
-                <div >
-                    <img src={book.cover} alt="Book Cover" />
-                </div>
+                
                 <table className='detailsList'>
                     <tr>
                         <td className='infoName'>Title:</td>

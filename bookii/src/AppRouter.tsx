@@ -10,6 +10,7 @@ import BookList from "./components/BookList";
 import BookDetailScreen from "./screens/BookDetails";
 import EditBookScreen from "./screens/EditBook";
 import LoginScreen from "./screens/LoginScreen";
+import ThankYouScreen from "./screens/ThankYouScreen";
 
 
 export const router = createBrowserRouter([
@@ -17,12 +18,7 @@ export const router = createBrowserRouter([
         path: "/",
         element: <BookiiApp />,
         errorElement: <ErrorScreen />,
-        children:[
-            {
-                path:"/about",
-                element:<AboutScreen/>
-            }
-        ]
+        
     },
     {
         path:'/booklist',
@@ -50,6 +46,12 @@ export const router = createBrowserRouter([
         path:"/login",
         element:<LoginScreen onLogin={(userRole: string) => {}} />
     },
+    {
+        path:"/thankyou",
+        element:<ThankYouScreen/>
+    }
+
+
 
    
 ]);

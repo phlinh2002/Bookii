@@ -1,6 +1,5 @@
-// src/redux/slices/booksSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Book,fetchBooks,addBooks } from '../domain/books'
+import { Book,fetchBooks} from '../domain/books'
 
 interface BooksState {
   items: Book[];

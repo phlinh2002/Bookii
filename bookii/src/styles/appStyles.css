@@ -275,3 +275,70 @@ a:visited {
     
 }
 
+.cart-popup {
+    position: fixed;
+    top: 9%;
+    right: 0%;
+    width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    z-index: 1000;
+}
+
+.cart-info{
+    font-weight: normal;
+    margin-left:3px ;
+}
+
+.cart-popup ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.cart-popup li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+}
+
+.cart-popup button {
+    background-color: none;
+    border: none;
+    color: grey;
+    padding: 4px 8px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+#checkout-button{
+    background-color: #A0522D;
+    color: white;
+}
+
+.cart-popup button:hover {
+    background-color: #ff3333;
+}
+
+.menuButton {
+    cursor: pointer;
+}
+.cart-popup p {
+    margin-top: 10px;
+}
+
+#total{
+    justify-self: left baseline;
+
+}
+
+#thankyou{
+    margin-left:30px;
+}
