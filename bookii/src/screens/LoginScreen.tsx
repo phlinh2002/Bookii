@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setRole } from '../components/store/userSlice';
 import '../styles/loginPage.css'
+
 interface LoginScreenProps{
     onLogin: (userRole: string) => void;
 }

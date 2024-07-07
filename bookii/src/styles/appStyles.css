@@ -293,6 +293,7 @@ a:visited {
 .cart-info{
     font-weight: normal;
     margin-left:3px ;
+    color:black;
 }
 
 .cart-popup ul {
@@ -323,6 +324,7 @@ a:visited {
     color: white;
 }
 
+
 .cart-popup button:hover {
     background-color: #ff3333;
 }
@@ -335,8 +337,8 @@ a:visited {
 }
 
 #total{
-    justify-self: left baseline;
-
+    text-align: right;
+    color: #8B0000;
 }
 
 #thankyou{

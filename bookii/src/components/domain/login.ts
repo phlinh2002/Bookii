@@ -43,7 +43,7 @@ export const updateProfile = async (userId: number, email: string, role: string)
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error('Failed to update profile');
+      throw new Error('Failed to loading data and update profile');
     }
 
     const data = await response.json();

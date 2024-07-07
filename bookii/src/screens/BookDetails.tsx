@@ -89,7 +89,7 @@ const BookDetailScreen: React.FC=() => {
 
                 <h2>{book.title}</h2>
                 <div className='bookCover' >
-                    <img src={book.cover} alt="Book Cover" />
+                    <img src={book.cover} alt="No Image" />
                 </div>
                 <table className='detailsList'>
                     <tr>
